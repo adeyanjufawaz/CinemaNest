@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(227, 227, 227);
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  opacity: 0.95;
+}
+.logo {
+  font-size: 28px;
+  background: linear-gradient(to bottom right, #2203ff, #c40d60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+.gradient {
+  background: linear-gradient(to bottom right, #2203ff, #c40d60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+.searchBar {
+  width: 350px;
+  position: relative;
+  cursor: pointer;
+}
+
+.searchBar input {
+  display: inline;
+  border: transparent;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.searchIcon {
+  display: inline;
+  position: absolute;
+  right: 3%;
+  top: 25%;
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    padding: 10px;
+  }
+  .logo {
+    font-size: 16px;
+    background: -webkit-linear-gradient(#2203ff, #c40d60);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .searchBar {
+    outline: none;
+    width: 170px;
+  }
+  .searchBar input {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .searchBar {
+    width: 140px;
+  }
+}
