@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import TrendSkeleton from "../popular/PopularSkeleton";
-import api from "../../axios";
+import api from "../../../axios";
 import { FaRegStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function convertYear(date: string) {
   var mydate = new Date(date);
@@ -44,10 +45,9 @@ function Trending() {
                 title,
                 vote_average,
                 release_date,
-                poster_path,
                 backdrop_path,
               }) => (
-                <div
+                <Link to={`movie/${title}/${id}`}
                   key={id}
                   className="flex flex-col cursor-pointer rounded w-[140px] lg:w-[200px] max-w-[200px] h-[200px] lg:h-[300px] shadow-slate-950 shadow-md p-1 "
                 >
@@ -69,7 +69,7 @@ function Trending() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               )
             )
         )}

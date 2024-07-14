@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+// import Home from "./components/homepage/Home";
 import Navbar from "./components/navbar/Navbar";
-import Hero from "./components/Hero";
-import Trending from "./components/trending/Trending";
-import Footer from "./components/Footer";
-import Popular from "./components/popular/Popular"
+import Footer from "./components/homepage/Footer";
+import Home from "./components/homepage/Home";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Trending />
-      <Popular />
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="movie/:name/:id" element={<MovieDetails/>} />
+      </Routes>
       <Footer/>
-    </div>
+    </>
   );
 }
 

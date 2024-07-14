@@ -1,5 +1,5 @@
-import img1 from "../img/homeImg1.png";
-import img2 from "../img/homeImg2.png";
+import img1 from "../../img/homeImg1.png";
+import img2 from "../../img/homeImg2.png";
 
 function Hero() {
   return (

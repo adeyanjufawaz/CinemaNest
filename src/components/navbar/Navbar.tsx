@@ -1,6 +1,7 @@
 import { CiSearch } from "react-icons/ci";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [input, setInput] = useState("");
@@ -14,7 +15,6 @@ function Navbar() {
     }
     if (input.length > 0) {
       setHideSearch(false);
-      console.log(input);
       async function getUser() {
         try {
           fetch(
@@ -34,7 +34,7 @@ function Navbar() {
   }, [input]);
   return (
     <nav className="navbar">
-      <h2 className="logo">CinemaNest</h2>
+      <Link to="/" className="logo">CinemaNest</Link>
       <div className="searchBar">
         <input type="text" onChange={(e) => setInput(e.target.value)} />
         <CiSearch className="searchIcon" />
@@ -43,7 +43,7 @@ function Navbar() {
           style={hideSearch ? { display: "none" } : { display: "flex" }}
         >
           {suggestionLists.map((list:{id:string,title:string}) => (
-            <h2 key={list.id} className="border-b-4 cursor-pointer p-3 rounded" onClick={()=>{console.log(list)}}>{list.title}</h2>
+            <Link to={`movie/${list.title}/${list.id}`} key={list.id} className="border-b-4 cursor-pointer p-3 rounded" onClick={()=>{console.log(list)}}>{list.title}</Link>
           ))}
 
         </div>
