@@ -36,7 +36,7 @@ function Navbar() {
     <nav className="navbar">
       <Link to="/" className="logo">CinemaNest</Link>
       <div className="searchBar">
-        <input type="text" onChange={(e) => setInput(e.target.value)} />
+        <input type="text" onChange={(e) => setInput(e.target.value)} onClick={() => setHideSearch(false)} />
         <CiSearch className="searchIcon" />
         <div
           className="absolute right-[2.5%] top-[110%] w-[95%] bg-white shadow-md shadow-red rounded-md lg:max-h-64 max-h-48 p-2 flex flex-col scroll-auto overflow-y-auto gap-2"

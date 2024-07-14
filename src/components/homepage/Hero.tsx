@@ -9,12 +9,12 @@ function Hero() {
           <img
             src={img1}
             alt="movie image"
-            className="w-full]"
+            className="w-full"
           />
           <img
             src={img2}
             alt="movie image"
-            className="w-full]  absolute top-[20%] -right-[30%] "
+            className="w-full absolute top-[20%] -right-[30%] "
           />
         </div>
       </div>
