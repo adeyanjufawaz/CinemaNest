@@ -1,21 +1,27 @@
 import img1 from "../../img/homeImg1.png";
 import img2 from "../../img/homeImg2.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Hero() {
   return (
     <div className="grid grid-cols-1 py-6 lg:grid-cols-2 gap-5 justify-between h-auto ">
       <div className="flex justify-center items-center p-4 lg:p-10 ">
         <div className="div relative  w-[120px] lg:w-[200px]">
-          <img
-            src={img1}
+          <LazyLoadImage
             alt="movie image"
-            className="w-full"
+            height={300}
+            src={img2} 
+            
+            width={200}
           />
-          <img
-            src={img2}
+          <LazyLoadImage
             alt="movie image"
-            className="w-full absolute top-[20%] -right-[30%] "
+            height={300}
+            src={img1} 
+            
+            width={200}
           />
+          
         </div>
       </div>
       <div className="flex flex-col justify-center items-start p-7">
