@@ -43,7 +43,7 @@ function Navbar() {
           style={hideSearch ? { display: "none" } : { display: "flex" }}
         >
           {suggestionLists.map((list:{id:string,title:string}) => (
-            <Link to={`movie/${list.title}/${list.id}`} key={list.id} className="border-b-4 cursor-pointer p-3 rounded" onClick={()=>{console.log(list)}}>{list.title}</Link>
+            <Link to={`movie/${list.title}/${list.id}`} key={list.id} className="border-b-4 cursor-pointer p-3 rounded" onClick={()=>{setHideSearch(true)}}>{list.title}</Link>
           ))}
 
         </div>

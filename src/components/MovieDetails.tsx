@@ -18,10 +18,10 @@ function MovieDetails() {
       }
     }
     getUser();
-  }, []);
+  }, [name]);
 
   useEffect(() => {
-    console.log(moviesArr);
+    console.log(moviesArr)
   }, [moviesArr]);
 
   type curType = {
