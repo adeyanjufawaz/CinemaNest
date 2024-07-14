@@ -64,7 +64,7 @@ function Trending() {
                     <div className="flex justify-between font-normal">
                       <p>{convertYear(release_date)}</p>
                       <div className="flex items-center">
-                        <p>{vote_average.toPrecision(2)}</p>
+                        <p>{vote_average}</p>
                         <FaRegStar className="ml-2" />
                       </div>
                     </div>
