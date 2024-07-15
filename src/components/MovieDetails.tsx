@@ -59,7 +59,6 @@ function MovieDetails() {
           {moviesArr.map(
             ({
               id,
-              backdrop_path,
               title,
               overview,
               release_date,

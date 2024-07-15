@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import TrendSkeleton from "../popular/PopularSkeleton";
 import api from "../../../axios";
-import { FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function convertYear(date: string) {
