@@ -31,23 +31,14 @@ function MovieDetails() {
     backdrop_path: string;
     title: string;
     overview: string;
-    release_date: string;
+    release_date: Date;
     vote_average: string;
     poster_path: string;
   };
 
-  const formateDate = (date: any) => {
-    // const data = new Date(date)
-    // return data.toDateString();
-
-    const dateType = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    const dateformat = new Date(date);
-    const dateTimeFormat2 = new Intl.DateTimeFormat("en-GB", dateType);
-    return dateTimeFormat2.format(dateformat);
+  const formateDate = (date: Date) => {
+    const data = new Date(date);
+    return data.toLocaleDateString();
   };
 
   return (
@@ -77,7 +68,7 @@ function MovieDetails() {
                 ></div>
                 <div className="flex flex-col justify-center items-start gap-3 md:gap-8 p-2 md:p-6">
                   <h2 className="font-bold  text-3xl">
-                    {title} ({release_date.slice(0, 4)})
+                    {title} ({release_date.getFullYear()})
                   </h2>
                   <p className="text-xl ">
                     <span className="font-medium">Overview</span>: {overview}
