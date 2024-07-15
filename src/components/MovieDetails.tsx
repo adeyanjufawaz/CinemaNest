@@ -6,7 +6,7 @@ import MovieDetailsSkeleton from "./MovieDetailsSkeleton";
 function MovieDetails() {
   const { name } = useParams();
   const [moviesArr, setMoviesArr]: any = useState([]);
-  const [isLoading,setIsloading] = useState(true)
+  const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
     async function getUser() {
@@ -16,7 +16,9 @@ function MovieDetails() {
         )
           .then((res) => res.json())
           .then((data) => setMoviesArr(data.results.slice(0, 1)));
-        setIsloading(false);
+        setTimeout(() => {
+          setIsloading(false);
+        }, 300);
       } catch (error) {
         console.error(error);
       }
@@ -24,14 +26,14 @@ function MovieDetails() {
     getUser();
   }, [name]);
 
-
   type curType = {
     id: string;
     backdrop_path: string;
     title: string;
     overview: string;
     release_date: string;
-    vote_average:string
+    vote_average: string;
+    poster_path: string;
   };
 
   const formateDate = (date: any) => {
@@ -51,7 +53,7 @@ function MovieDetails() {
   return (
     <>
       {isLoading ? (
-        <MovieDetailsSkeleton/>
+        <MovieDetailsSkeleton />
       ) : (
         <div>
           {moviesArr.map(
@@ -62,12 +64,13 @@ function MovieDetails() {
               overview,
               release_date,
               vote_average,
+              poster_path,
             }: curType) => (
               <div key={id} className=" flex-col md:flex-row flex p-6">
                 <div
                   className=" h-80 lg:h-96 w-full md:w-[800px] rounded-md "
                   style={{
-                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`,
+                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${poster_path}") `,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     objectFit: "contain",
@@ -77,13 +80,21 @@ function MovieDetails() {
                   <h2 className="font-bold  text-3xl">
                     {title} ({release_date.slice(0, 4)})
                   </h2>
-                  <p className="text-xl ">Review: {overview}</p>
+                  <p className="text-xl ">
+                    <span className="font-medium">Overview</span>: {overview}
+                  </p>
                   <ul className="list-disc">
                     <li className="ml-4">
-                      <h2> {formateDate(release_date)}</h2>
+                      <h2>
+                        <span className="font-medium">Release Date</span>:{" "}
+                        {formateDate(release_date)}
+                      </h2>
                     </li>
                     <li className="ml-4">
-                      <h2>Rating: {toTwoSigFig(vote_average)}</h2>
+                      <h2>
+                        <span className="font-medium">Rating</span>:{" "}
+                        {toTwoSigFig(vote_average)}
+                      </h2>
                     </li>
                   </ul>
                 </div>

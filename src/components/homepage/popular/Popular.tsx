@@ -31,14 +31,14 @@ function Trending() {
 
   return (
     <div className=" min-h-96 my-6 py-6 px-4">
-      <h2 className="text-2xl mb-6 font-medium">Popular Movies</h2>
+      <h2 className="text-2xl gradient mb-6 font-medium">Popular Movies</h2>
       <div className="flex gap-8 lg:gap-8 justify-center items-center flex-wrap ">
         {isLoading ? (
           <TrendSkeleton />
         ) : (
           moviesArr
             .slice(0, 10)
-            .map(({ id, title, vote_average, release_date, backdrop_path }) => (
+            .map(({ id, title, vote_average, release_date, poster_path }) => (
               <Link
                 to={`movie/${title}/${id}`}
                 key={id}
@@ -47,7 +47,7 @@ function Trending() {
                 <div
                   className="flex justify-start items-start h-[100px]  bg-gray-400 lg:h-[200px]  lg:min-w-[200px] relative "
                   style={{
-                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${backdrop_path}")`,
+                    backgroundImage: `url("https://image.tmdb.org/t/p/original/${poster_path}")`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
                   }}
