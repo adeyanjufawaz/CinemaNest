@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 
 function convertYear(date: string) {
   var mydate = new Date(date);
-
   return mydate.getFullYear();
 }
 
-const toTwoSigFig = (data:any) => {
+export const toTwoSigFig = (data:any) => {
   return data.toFixed(2)
 }
 
@@ -59,11 +58,10 @@ function Trending() {
                 ></div>
                 <div className="flex flex-col px-3 py-1 justify-between text-lg gap-2 mt-3 lg:mt-5">
                   <p className="font-normal truncate">{title}</p>
-                  <div className="flex justify-between font-normal">
+                  <div className="flex flex-col font-normal">
                     <p>{convertYear(release_date)}</p>
-                    <div className="flex items-center">
-                      <p>{toTwoSigFig(vote_average)}</p>
-                      <FaRegStar className="ml-2" />
+                    <div className="flex justify-between items-center">
+                      <p>Rating: {toTwoSigFig(vote_average)}</p>
                     </div>
                   </div>
                 </div>
