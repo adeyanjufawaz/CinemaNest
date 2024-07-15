@@ -68,7 +68,7 @@ function MovieDetails() {
                 ></div>
                 <div className="flex flex-col justify-center items-start gap-3 md:gap-8 p-2 md:p-6">
                   <h2 className="font-bold  text-3xl">
-                    {title} ({release_date.getFullYear()})
+                    {title} ({new Date(release_date).getFullYear()})
                   </h2>
                   <p className="text-xl ">
                     <span className="font-medium">Overview</span>: {overview}
